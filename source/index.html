@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Form Validation</title>
+  <link rel="stylesheet" href="vendor/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Add Customer</h1>
+      <h2>Specifications:</h2>
+      <p>
+        <ul>
+          <li>Have a name with at least 3 chars</li>
+          <li>Have a valid e-mail</li>
+          <li>Have a password with at least 6 chars</li>
+        </ul>
+      </p>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="email"
+               class="form-control"
+               placeholder="Enter name">        
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email"
+               class="form-control"
+               placeholder="Enter email">        
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password"
+               class="form-control"
+               placeholder="Password">        
+      </div>
+      <button type="submit"
+              class="btn btn-default">
+        Submit
+      </button>
+    </form>
+
+    <footer class="footer">
+        <p>Eric Douglas - 2015</p>
+    </footer>
+
+  </div>
+</body>
+</html>
