@@ -24,7 +24,7 @@
 
     <form novalidate
           name="customerForm"
-          ng-submit="vm.save()">
+          ng-submit="vm.save( vm.customer )">
 
       <div class="form-group"
            ng-class="{ 'has-error' : customerForm.name.$invalid && !customerForm.name.$pristine }">
