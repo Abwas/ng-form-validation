@@ -15,9 +15,9 @@
       <h2>Specifications:</h2>
       <p>
         <ul>
-          <li>Have a name with at least 3 chars</li>
-          <li>Have a valid e-mail</li>
-          <li>Have a password with at least 6 chars</li>
+          <li>Has a name with at least 3 chars</li>
+          <li>Has a valid e-mail</li>
+          <li>Has a password of 5 to 8 chars</li>
         </ul>
       </p>
     </div>
@@ -50,13 +50,19 @@
                ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">        
       </div>
 
-      <div class="form-group">
+      <div class="form-group"
+           ng-class="{ 'has-error' : customerForm.password.$invalid && !customerForm.password.$pristine }">
         <label>Password</label>
         <input type="password"
+              name="password" 
                class="form-control"
-               placeholder="Password">        
+               placeholder="Password"
+               required
+               ng-model="vm.customer.password"
+               ng-minlength="5"
+               ng-maxlength="8">        
       </div>
-      
+
       <button type="submit"
               class="btn btn-primary">
         Submit
