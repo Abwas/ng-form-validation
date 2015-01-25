@@ -13,6 +13,7 @@
     var vm = this;
 
     ///////////// Properties
+    vm.customer = {};
 
     ///////////// Public Methods
 

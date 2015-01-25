@@ -25,11 +25,17 @@
     <form novalidate
           name="customerForm"
           ng-submit="vm.save()">
-      <div class="form-group">
+
+      <div class="form-group"
+           ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
         <label>Name</label>
-        <input type="email"
+        <input name="email"
+               type="text"
                class="form-control"
-               placeholder="Enter name">        
+               placeholder="Enter name"
+               required
+               ng-minlength="3"
+               ng-model="vm.customer.email">        
       </div>
       <div class="form-group">
         <label>Email address</label>
@@ -47,6 +53,7 @@
               class="btn btn-primary">
         Submit
       </button>
+
     </form>
 
     <footer class="footer">
