@@ -35,7 +35,11 @@
                placeholder="Enter name"
                required
                ng-minlength="3"
-               ng-model="vm.customer.name">        
+               ng-model="vm.customer.name">
+        <p ng-show="customerForm.name.$error.minlength"
+           class="help-block">
+          Password too short!
+        </p>   
       </div>
 
       <div class="form-group"
