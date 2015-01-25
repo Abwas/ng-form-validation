@@ -35,7 +35,11 @@
                placeholder="Enter name"
                required
                ng-minlength="3"
-               ng-model="vm.customer.name">        
+               ng-model="vm.customer.name">
+        <p ng-show="customerForm.name.$error.minlength"
+           class="help-block">
+          Name too short!
+        </p>
       </div>
 
       <div class="form-group"
@@ -47,7 +51,7 @@
                placeholder="Enter email"
                required
                ng-model="vm.customer.email"
-               ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">        
+               ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">     
       </div>
 
       <div class="form-group"
@@ -60,7 +64,15 @@
                required
                ng-model="vm.customer.password"
                ng-minlength="5"
-               ng-maxlength="8">        
+               ng-maxlength="8">
+        <p ng-show="customerForm.password.$error.minlength"
+           class="help-block">
+          Password too short!
+        </p>
+        <p ng-show="customerForm.password.$error.maxlength"
+           class="help-block">
+          Password too long!
+        </p>
       </div>
 
       <button type="submit"
