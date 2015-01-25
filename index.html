@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      ng-app="formApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Form Validation</title>
+  <link rel="stylesheet" href="vendor/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="FormController as vm">
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1>Add Customer</h1>
+      <h2>Specifications:</h2>
+      <p>
+        <ul>
+          <li>Has a name with at least 3 chars</li>
+          <li>Has a valid e-mail</li>
+          <li>Has a password of 5 to 8 chars</li>
+        </ul>
+      </p>
+    </div>
+
+    <form novalidate
+          name="customerForm"
+          ng-submit="vm.save( vm.customer )">
+
+      <div class="form-group"
+           ng-class="{ 'has-error' : customerForm.name.$invalid && !customerForm.name.$pristine }">
+        <label>Name</label>
+        <input name="name"
+               type="text"
+               class="form-control"
+               placeholder="Enter name"
+               required
+               ng-minlength="3"
+               ng-model="vm.customer.name">        
+      </div>
+
+      <div class="form-group"
+          ng-class="{ 'has-error' : customerForm.email.$invalid && !customerForm.email.$pristine }">
+        <label>Email address</label>
+        <input type="email"
+               name="email" 
+               class="form-control"
+               placeholder="Enter email"
+               required
+               ng-model="vm.customer.email"
+               ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">        
+      </div>
+
+      <div class="form-group"
+           ng-class="{ 'has-error' : customerForm.password.$invalid && !customerForm.password.$pristine }">
+        <label>Password</label>
+        <input type="password"
+              name="password" 
+               class="form-control"
+               placeholder="Password"
+               required
+               ng-model="vm.customer.password"
+               ng-minlength="5"
+               ng-maxlength="8">        
+      </div>
+
+      <button type="submit"
+              ng-disabled="customerForm.$invalid"
+              class="btn btn-primary">
+        Submit
+      </button>
+
+    </form>
+
+    <footer class="footer">
+        <p>Eric Douglas - 2015</p>
+    </footer>
+
+  </div>
+
+  <script src="vendor/angularjs/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controller.js"></script>
+</body>
+</html>
