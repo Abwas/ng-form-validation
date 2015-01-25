@@ -22,7 +22,9 @@
       </p>
     </div>
 
-    <form>
+    <form novalidate
+          name="customerForm"
+          ng-submit="vm.save()">
       <div class="form-group">
         <label>Name</label>
         <input type="email"
