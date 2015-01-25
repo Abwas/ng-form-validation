@@ -6,9 +6,9 @@
     .module( 'formApp' )
     .controller( 'FormController', FormController );
 
-  FormController.$inject = [];
+  FormController.$inject = [ '$scope' ];
 
-  function FormController() {
+  function FormController( $scope ) {
 
     var vm = this;
 
@@ -25,7 +25,11 @@
 
       console.log( 'Data were successfully sent to the server!' );
       console.log( JSON.stringify( data, null, 2 ));
+      
       vm.customer = {};
+
+      // we need $scope to use this method
+      $scope.customerForm.$setPristine();
 
     }
 
